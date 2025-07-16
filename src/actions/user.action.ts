@@ -6,6 +6,7 @@ import { auth, currentUser } from "@clerk/nextjs/server";
 export async function syncUser() {
     try {
         const { userId } = await auth();
+        // Get the Backend API User object when you need access to the user's information
         const user = await currentUser();
 
         if (!userId || !user) return;
