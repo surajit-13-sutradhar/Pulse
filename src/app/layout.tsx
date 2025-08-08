@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Pulse",
-  description: "A Social Media App",
+  description: "A Social Media App- Powered by Next Js",
 };
 
 export default function RootLayout({
