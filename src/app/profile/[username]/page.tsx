@@ -1,6 +1,8 @@
 import { getProfileByUsername, getUserLikedPosts, getUserPosts, isFollowing } from "@/actions/profile.action";
 import { notFound } from "next/navigation";
 
+import ProfilePageClient from "./ProfilePageClient";
+
 export async function generateMetadata({params}: {params: Promise<{username: string}>}) {
     const {username} = await params;
     const user = await getProfileByUsername(username);
@@ -30,7 +32,12 @@ async function ProfilePage({params}: {params: Promise<{username: string}>}) {
         isFollowing (user.id)
     ])
 
-    return <div>Profile Page</div>
+    return <ProfilePageClient
+        user={user}
+        posts={posts}
+        likedPosts={likedPosts}
+        isFollowing={isCurrentUserFollowing}
+    />
 }
 
 export default ProfilePage;
